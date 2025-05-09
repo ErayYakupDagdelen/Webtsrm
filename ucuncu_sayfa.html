@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girilen Bilgiler</title>
+    <link rel="stylesheet" href="still.css">
+</head>
+<body>
+    <h1>Girdiğiniz Bilgiler</h1>
+    <p>Ad: <span id="ad"></span></p>
+    <p>Soyad: <span id="soyad"></span></p>
+    <p>Cinsiyet: <span id="cinsiyet"></span></p>
+    <p>Yaş: <span id="yas"></span></p>
+    <p>E-Posta: <span id="email"></span></p>
+
+ <br>
+ <br>
+ <div id="footer-placeholder"></div>
+
+
+    <script>
+         // Navbar'ı yükle
+         fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar-placeholder").innerHTML = data;
+            });
+
+        // Footer'ı yükle
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer-placeholder").innerHTML = data;
+            });
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("ad").innerText = params.get("ad") || "Bilinmiyor";
+        document.getElementById("soyad").innerText = params.get("soyad") || "Bilinmiyor";
+        document.getElementById("cinsiyet").innerText = params.get("cinsiyet") || "Bilinmiyor";
+        document.getElementById("yas").innerText = params.get("yas") || "Bilinmiyor";
+        document.getElementById("email").innerText = params.get("email") || "Bilinmiyor";
+    </script>
+</body>
+<div id="navbar-placeholder"></div>
+</html>

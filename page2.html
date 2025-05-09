@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilgi Formu</title>
+    <link rel="stylesheet" href="still.css">
+    
+</head>
+<body>
+    <h1>Bilgilerinizi Giriniz</h1>
+    <form action="ucuncu_sayfa.html" method="GET">
+        Ad: <input type="text" name="ad"><br>
+        Soyad: <input type="text" name="soyad"><br>
+        Cinsiyet:
+        <input type="radio" name="cinsiyet" value="Erkek"> Erkek
+        <input type="radio" name="cinsiyet" value="Kadın"> Kadın<br><br>
+        Yaş: <input type="number" name="yas"><br>
+        E-Posta: <input type="email" name="email"><br>
+        <input type="submit" value="Gönder">
+    </form>
+ <br>
+ <br>
+
+
+    
+    <script>
+         
+        // Navbar'ı yükle
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar-placeholder").innerHTML = data;
+            });
+
+        // Footer'ı yükle
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer-placeholder").innerHTML = data;
+            });
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+
+            form.addEventListener("submit", function (e) {
+                const ad = form.elements["ad"].value.trim();
+                const soyad = form.elements["soyad"].value.trim();
+                const cinsiyet = form.elements["cinsiyet"].value;
+                const yas = form.elements["yas"].value.trim();
+                const email = form.elements["email"].value.trim();
+
+                if (!ad || !soyad || !cinsiyet || !yas || !email) {
+                    alert("Lütfen tüm alanları doldurunuz.");
+                    e.preventDefault();
+                    return;
+                }
+
+                const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                if (!emailPattern.test(email)) {
+                    alert("Lütfen geçerli bir e-posta adresi giriniz.");
+                    e.preventDefault();
+                }
+
+                if (parseInt(yas) <= 0 || isNaN(yas)) {
+                    alert("Lütfen geçerli bir yaş giriniz.");
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+<div id="navbar-placeholder"></div>
+</html>

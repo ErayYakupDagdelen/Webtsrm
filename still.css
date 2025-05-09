@@ -1,0 +1,160 @@
+
+/* Genel stil */
+body {
+    
+    background-color: #f4f6f9;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Ana başlık */
+h1 {
+    text-align: center;
+    font-weight: 700;  /* Daha belirgin yazı */
+    font-size: 3em;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: #2c3e50;  /* Koyu gri yerine daha canlı bir renk */
+    text-transform: uppercase;
+}
+
+/* Ayrac */
+hr {
+    width: 60%;
+    margin: 30px auto;
+    border: 0;
+    border-top: 2px solid #3498db;  /* Mavi tonlu bir çizgi */
+}
+
+/* İkinci başlık */
+h2 {
+    color: #e74c3c;  /* Canlı kırmızı */
+    font-weight: bold;
+    font-style: normal;  /* İtalik yerine normal, daha düzenli */
+    font-size: 1.8em;
+    margin-top: 30px;
+}
+
+/* İçerik konteyneri */
+.container {
+    width: 85%;
+    margin: 30px auto;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+/* Navigasyon */
+.nav {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.nav a {
+    color: #3498db;  /* Canlı mavi */
+    font-size: 1.2em;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+    color: #e74c3c;  /* Kırmızıya dönüş efekti */
+}
+
+/* Görseller */
+img {
+    display: block;
+    margin: 30px auto;
+    max-width: 100%;
+    border-radius: 8px;  /* Daha yumuşak köşeler */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablo */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+th, td {
+    border: 1px solid #ddd;  /* Daha yumuşak sınırlar */
+    padding: 12px;
+    text-align: center;
+    font-size: 1em;
+}
+
+th {
+    background-color: #3498db;  /* Mavi başlık arka planı */
+    color: white;
+}
+
+/* Tablo satır renk değişimi */
+tr:nth-child(even) {
+    background-color: #ecf0f1;  /* Hafif gri arka plan */
+}
+
+tr:hover {
+    background-color: #f39c12;  /* Satır üzerine gelindiğinde sarımsı renk */
+}
+a:hover {
+    color: #ffcccb;
+}
+span {
+    color: #ffcccb;
+}
+
+a {
+    color: white;
+    margin: 15px 10px;
+    text-decoration: underline;
+    font-size: 1.1em;
+}
+form {
+    background-color: #444;
+    padding: 25px;
+    border-radius: 15px;
+    width: 300px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: darkred;
+}
+
+a {
+    color: white;
+    margin-top: 20px;
+    text-decoration: underline;
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taş Kağıt Makas Oyunu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    input {
+      padding: 8px;
+      margin: 10px 0;
+      width: 80%;
+      text-align: center;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .choice {
+      font-size: 18px;
+      margin: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .player {
+      margin-bottom: 30px;
+    }
+
+    #resetButton {
+      background-color: #28a745;
+      display: block;
+      margin: 20px auto 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    #navbar-placeholder {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Taş Kağıt Makas Oyunu</h1>
+
+    <!-- Oyuncu 1 -->
+    <div class="player" id="player1">
+      <h2>Oyuncu 1: <input type="text" id="player1Name" placeholder="Ahmet" /></h2>
+      <div class="choices" style="text-align:center;">
+        <button class="choice" id="rock1">Taş</button>
+        <button class="choice" id="paper1">Kağıt</button>
+        <button class="choice" id="scissors1">Makas</button>
+      </div>
+      <p style="text-align:center;">Seçim: <span id="player1Choice">Yapılmadı</span></p>
+    </div>
+
+    <!-- Oyuncu 2 -->
+    <div class="player" id="player2">
+      <h2>Oyuncu 2: <input type="text" id="player2Name" placeholder="Eray" /></h2>
+      <div class="choices" style="text-align:center;">
+        <button class="choice" id="rock2">Taş</button>
+        <button class="choice" id="paper2">Kağıt</button>
+        <button class="choice" id="scissors2">Makas</button>
+      </div>
+      <p style="text-align:center;">Seçim: <span id="player2Choice">Yapılmadı</span></p>
+    </div>
+
+    <div class="result" id="resultMessage"></div>
+    <button id="resetButton">Yeniden Başla</button>
+  </div>
+
+  <!-- Alt Navbar -->
+  <div id="navbar-placeholder"></div>
+
+  <script>
+    // Navbar'ı yükle
+    fetch("navbar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+
+    // Oyun işlevi
+    document.addEventListener("DOMContentLoaded", () => {
+      const rock1 = document.getElementById("rock1");
+      const paper1 = document.getElementById("paper1");
+      const scissors1 = document.getElementById("scissors1");
+      const rock2 = document.getElementById("rock2");
+      const paper2 = document.getElementById("paper2");
+      const scissors2 = document.getElementById("scissors2");
+      const resetButton = document.getElementById("resetButton");
+      const resultMessage = document.getElementById("resultMessage");
+      const player1ChoiceDisplay = document.getElementById("player1Choice");
+      const player2ChoiceDisplay = document.getElementById("player2Choice");
+      const player1NameInput = document.getElementById("player1Name");
+      const player2NameInput = document.getElementById("player2Name");
+
+      let player1Choice = "";
+      let player2Choice = "";
+      let player1Name = "Ahmet";
+      let player2Name = "Eray";
+
+      player1NameInput.addEventListener("input", () => {
+        player1Name = player1NameInput.value || "Ahmet";
+      });
+      player2NameInput.addEventListener("input", () => {
+        player2Name = player2NameInput.value || "Eray";
+      });
+
+      rock1.addEventListener("click", () => setPlayer1Choice("Taş"));
+      paper1.addEventListener("click", () => setPlayer1Choice("Kağıt"));
+      scissors1.addEventListener("click", () => setPlayer1Choice("Makas"));
+
+      rock2.addEventListener("click", () => setPlayer2Choice("Taş"));
+      paper2.addEventListener("click", () => setPlayer2Choice("Kağıt"));
+      scissors2.addEventListener("click", () => setPlayer2Choice("Makas"));
+
+      function setPlayer1Choice(choice) {
+        player1Choice = choice;
+        player1ChoiceDisplay.textContent = player1Choice;
+        checkWinner();
+      }
+
+      function setPlayer2Choice(choice) {
+        player2Choice = choice;
+        player2ChoiceDisplay.textContent = player2Choice;
+        checkWinner();
+      }
+
+      function checkWinner() {
+        if (player1Choice && player2Choice) {
+          let winner = "";
+          if (player1Choice === player2Choice) {
+            winner = "Beraberlik!";
+          } else if (
+            (player1Choice === "Taş" && player2Choice === "Makas") ||
+            (player1Choice === "Kağıt" && player2Choice === "Taş") ||
+            (player1Choice === "Makas" && player2Choice === "Kağıt")
+          ) {
+            winner = `${player1Name} kazandı!`;
+          } else {
+            winner = `${player2Name} kazandı!`;
+          }
+          resultMessage.textContent = winner;
+        }
+      }
+
+      resetButton.addEventListener("click", () => {
+        player1Choice = "";
+        player2Choice = "";
+        player1ChoiceDisplay.textContent = "Yapılmadı";
+        player2ChoiceDisplay.textContent = "Yapılmadı";
+        resultMessage.textContent = "";
+        player1NameInput.value = "";
+        player2NameInput.value = "";
+      });
+    });
+  </script>
+  <div id="footer-placeholder"></div>
+
+</body>
+</html>
+

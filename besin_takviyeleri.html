@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Besin Takviyeleri ve Kullanım Bilimi</title>
+    <link rel="stylesheet" href="still.css">
+
+</head>
+<body>
+    <h1>Besin Takviyeleri ve Kullanım Bilimi</h1>
+
+  
+    <img src="besintakviyeleri.png" alt="Besin Takviyeleri">
+
+    <p>
+        Besin takviyeleri, özellikle sporcular ve aktif bireyler için günlük beslenmenin desteklenmesinde önemli bir yer tutar. Ancak, takviye kullanımı rastgele yapılmamalıdır. Etkinlikleri, zamanlamaları ve dozajları, bilimsel veriler ışığında planlanmalıdır. Takviyeler; performans artırıcılar, toparlanma destekleyiciler ve eksik besin öğelerini tamamlayan ürünler olarak üç ana gruba ayrılabilir.
+    </p>
+
+    <h2>Protein Tozları</h2>
+    <p>
+        En yaygın kullanılan takviyelerden biri protein tozlarıdır. Özellikle whey protein (peynir altı suyu proteini), hızlı sindirimi ve yüksek biyolojik değeri nedeniyle antrenman sonrası kullanıma uygundur. Yapılan araştırmalar, egzersiz sonrası 20-40 gram protein tüketiminin kas protein sentezini maksimize ettiğini göstermektedir. Kazein proteini ise yavaş sindirildiği için genellikle gece yatmadan önce kullanılır. Bitkisel bazlı protein tozları (bezelye, pirinç, soya) da vegan bireyler için etkili alternatiflerdir.
+    </p>
+
+    <h2>Kreatin</h2>
+    <p>
+        Kreatin monohidrat, bilimsel olarak en çok araştırılmış ve etkinliği kanıtlanmış performans artırıcılardan biridir. Kaslarda ATP üretimini destekleyerek kısa süreli, yüksek yoğunluklu egzersiz performansını artırır. Aynı zamanda kas hücrelerinde su tutulumuna neden olarak hacim artışına katkıda bulunabilir. Genel olarak günde 3-5 gram dozda uzun vadeli kullanım güvenli kabul edilir. Kreatin yükleme evresi (günde 20 gram/5-7 gün) opsiyoneldir.
+    </p>
+
+    <h2>BCAA ve EAA</h2>
+    <p>
+        BCAA (Branched-Chain Amino Acids) – lösin, izolösin ve valin – kas protein sentezinde rol oynayan temel amino asitlerdir. Ancak son yıllarda yapılan çalışmalar, tüm esansiyel amino asitlerin (EAA) alınmasının kas gelişimi açısından daha etkili olduğunu ortaya koymuştur. Özellikle yeterli protein alımı olan bireylerde BCAA takviyelerinin etkisi sınırlıdır. Bu nedenle, gerçek protein kaynakları önceliklidir.
+    </p>
+
+    <h2>Pre-Workout (Antrenman Öncesi) Takviyeleri</h2>
+    <p>
+        Antrenman öncesi ürünler genellikle kafein, beta-alanin, arjinin ve sitrülin gibi bileşenler içerir. Kafein, merkezi sinir sistemini uyararak konsantrasyon ve dayanıklılığı artırır. Beta-alanin ise kas içi pH seviyesini düzenleyerek egzersiz sırasında oluşan yanmayı geciktirir. Ancak bu tür ürünlerin içeriği dikkatle incelenmeli ve bireysel tolerans göz önünde bulundurulmalıdır.
+    </p>
+
+    <h2>Vitamin ve Mineral Takviyeleri</h2>
+    <p>
+        Özellikle D vitamini, magnezyum, çinko ve demir gibi mikro besinlerin eksiklikleri sportif performansı olumsuz etkileyebilir. Ancak bu takviyeler, kan testleriyle belirlenen eksiklikler doğrultusunda alınmalıdır. Gelişi güzel kullanımlar vücutta dengesizliklere yol açabilir.
+    </p>
+
+    <h2>Takviye Kullanımında Bilinmesi Gerekenler</h2>
+    <ul>
+        <li>Takviyeler, dengeli ve yeterli beslenmenin yerine geçmez.</li>
+        <li>Her bireyin ihtiyacı farklıdır; yaş, cinsiyet, antrenman yoğunluğu gibi faktörler dikkate alınmalıdır.</li>
+        <li>Güvenilir markalardan alınmalı, içerik ve sertifikalar kontrol edilmelidir.</li>
+        <li>Yasal sınırları aşan içerikler (örneğin anabolik maddeler) sağlık açısından büyük risk taşır.</li>
+    </ul>
+
+    <p>
+        Sonuç olarak, besin takviyeleri doğru şekilde kullanıldığında faydalı olabilir. Ancak bu faydanın maksimuma ulaşması için kişiye özel planlanmalı ve düzenli bir yaşam tarzı ile desteklenmelidir.
+    </p>
+    <br>
+    <br>
+    <script>
+        // Navbar'ı yükle
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar-placeholder").innerHTML = data;
+            });
+
+        // Footer'ı yükle
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer-placeholder").innerHTML = data;
+            });
+    </script>
+
+<div id="footer-placeholder"></div>
+
+</body>
+<div id="navbar-placeholder"></div>
+</html>
